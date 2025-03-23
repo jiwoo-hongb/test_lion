@@ -9,3 +9,4 @@ public class DevMemberApplication {
         SpringApplication.run(DevMemberApplication.class, args);
     }
 }
+//자동으로 컴포넌트 스캔 수행 => spring bean으로 등록함

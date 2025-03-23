@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/devMember")
+@RestController //REST API 컨트롤러
+@RequestMapping("/devMember") //해당 url과 매핑돠ㅣㅁ
 public class DevMemberController {
 
     private final DevMemberService devMemberService; // DevMemberService 사용
@@ -23,9 +23,9 @@ public class DevMemberController {
         this.devMemberService = devMemberService;
     }
 
-    @GetMapping
+    @GetMapping //get 요청 처리
     public List<DevMember> getAllDevMember() {
         return devMemberService.getAllDevMembers(); // ✅ Service를 통해 데이터 가져옴
-    }
+    } // 위의 메서드 호출하여 개발 멤버 데이터 조회 후 반환
 }
 
