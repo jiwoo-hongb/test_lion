@@ -26,10 +26,10 @@ public class MemberService {
         return repository.save(member);
     }
 
-    // ✅ [3] 회원 삭제 (이름으로)
+    // ✅ [3] 회원 삭제 (studentId로)
     @Transactional
-    public boolean deleteMemberByName(String name) {
-        Optional<Member> member = repository.findByName(name);
+    public boolean deleteMemberByStudentId(int studentId) {
+        Optional<Member> member = repository.findByStudentId(studentId);
         if (member.isPresent()) {
             repository.delete(member.get());
             return true;
@@ -37,16 +37,15 @@ public class MemberService {
         return false;
     }
 
-    // ✅ [4] 회원 정보 수정 (이름으로 찾기)
+    // ✅ [4] 회원 정보 수정 (studentId로 찾기)
     @Transactional
-    public Optional<Member> updateMemberByName(String name, MemberUpdateDto updateDto) {
-        Optional<Member> optionalMember = repository.findByName(name);
+    public Optional<Member> updateMemberByStudentId(int studentId, MemberUpdateDto updateDto) {
+        Optional<Member> optionalMember = repository.findByStudentId(studentId);
 
         if (optionalMember.isPresent()) {
             Member member = optionalMember.get();
 
             // 입력된 값이 있으면 업데이트, 없으면 기존 값 유지
-            if (updateDto.getStudentId() != null) member.setStudentId(updateDto.getStudentId());
             if (updateDto.getDepartment() != null) member.setDepartment(updateDto.getDepartment());
             if (updateDto.getEmail() != null) member.setEmail(updateDto.getEmail());
             if (updateDto.getDevField() != null) member.setDevField(updateDto.getDevField());
@@ -57,4 +56,5 @@ public class MemberService {
         }
         return Optional.empty();
     }
+
 }

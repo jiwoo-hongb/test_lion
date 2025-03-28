@@ -42,28 +42,28 @@ public class MemberController {
         return ResponseEntity.ok(savedMember);
     }
 
-    // ✅ [3] 회원 삭제 (이름으로)
-    @Operation(summary = "회원 삭제", description = "이름을 기준으로 회원을 삭제합니다.")
-    @DeleteMapping("/delete/{name}")
-    public ResponseEntity<String> deleteMember(@PathVariable String name) {
-        boolean isDeleted = memberService.deleteMemberByName(name);
+    // ✅ [3] 회원 삭제 (studentId로)
+    @Operation(summary = "회원 삭제", description = "studentId를 기준으로 회원을 삭제합니다.")
+    @DeleteMapping("/delete/{studentId}")
+    public ResponseEntity<String> deleteMember(@PathVariable int studentId) {
+        boolean isDeleted = memberService.deleteMemberByStudentId(studentId);
         if (isDeleted) {
-            return ResponseEntity.ok("✅ '" + name + "' 회원이 삭제되었습니다.");
+            return ResponseEntity.ok("✅ '" + studentId + "' 학번 회원이 삭제되었습니다.");
         } else {
-            return ResponseEntity.badRequest().body("❌ '" + name + "' 회원을 찾을 수 없습니다.");
+            return ResponseEntity.badRequest().body("❌ '" + studentId + "' 학번 회원을 찾을 수 없습니다.");
         }
     }
 
-    // ✅ [4] 회원 정보 수정 (이름으로 찾기)
-    @Operation(summary = "회원 정보 수정", description = "이름을 기준으로 회원 정보를 수정합니다.")
-    @PutMapping("/update/{name}")
-    public ResponseEntity<?> updateMember(@PathVariable String name, @RequestBody MemberUpdateDto updateDto) {
-        Optional<Member> updatedMember = memberService.updateMemberByName(name, updateDto);
+    // ✅ [4] 회원 정보 수정 (studentId로 찾기)
+    @Operation(summary = "회원 정보 수정", description = "studentId를 기준으로 회원 정보를 수정합니다.")
+    @PutMapping("/update/{studentId}")
+    public ResponseEntity<?> updateMember(@PathVariable int studentId, @RequestBody MemberUpdateDto updateDto) {
+        Optional<Member> updatedMember = memberService.updateMemberByStudentId(studentId, updateDto);
 
         if (updatedMember.isPresent()) {
             return ResponseEntity.ok(updatedMember.get());
         } else {
-            return ResponseEntity.badRequest().body("❌ '" + name + "' 회원을 찾을 수 없습니다.");
+            return ResponseEntity.badRequest().body("❌ '" + studentId + "' 학번 회원을 찾을 수 없습니다.");
         }
     }
 }

@@ -11,7 +11,7 @@ public class FormRequestDto {
     private String name;
     private String department;
     private String email;
-    private String devPart;
+    private String devField;
     private String motivation;
     private String project;
 
@@ -21,7 +21,7 @@ public class FormRequestDto {
                 .name(name)
                 .department(department)
                 .email(email)
-                .devPart(devPart)
+                .devField(devField)
                 .motivation(motivation)
                 .project(project)
                 .build();

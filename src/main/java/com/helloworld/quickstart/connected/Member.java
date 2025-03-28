@@ -33,6 +33,7 @@ public class Member {
     private int generation;
 
     public void setStudentId(int studentId) { this.studentId = studentId; }
+    public void setName(String name) { this.name = name; }
     public void setDepartment(String department) { this.department = department; }
     public void setEmail(String email) { this.email = email; }
     public void setDevField(String devField) { this.devField = devField; }

@@ -29,7 +29,7 @@ public class Form {
     private String email;
 
     @Column(nullable = false)
-    private String devPart;
+    private String devField;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String motivation;
