@@ -12,4 +12,5 @@ public class MemberRequestDto {
     private String email;
     private String devField;
     private int generation;
+    private String image;
 }
