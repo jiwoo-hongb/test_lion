@@ -28,4 +28,7 @@ public class DevMember {
 
     @Column(name = "dev_field", nullable = false)
     private String devField;
+
+    @Column(name = "image", nullable = false)
+    private String image;
 }

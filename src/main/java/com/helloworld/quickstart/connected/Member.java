@@ -32,10 +32,14 @@ public class Member {
     @Column(name = "generation", nullable = false)
     private int generation;
 
+    @Column(name = "image", nullable = false)
+    private String image;
+
     public void setStudentId(int studentId) { this.studentId = studentId; }
     public void setName(String name) { this.name = name; }
     public void setDepartment(String department) { this.department = department; }
     public void setEmail(String email) { this.email = email; }
     public void setDevField(String devField) { this.devField = devField; }
     public void setGeneration(int generation) { this.generation = generation; }
+    public void setImage(String image) { this.image = image; }
 }
